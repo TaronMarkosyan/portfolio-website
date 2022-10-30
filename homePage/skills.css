@@ -1,0 +1,209 @@
+body{
+    margin:0;
+    font-family: sans-serif;
+    background-image: url('images/foneimage.webp');
+}
+
+/* header styles */
+
+header{
+    text-align: center;
+    width: 100%;
+    background-color: whitesmoke;
+    border-bottom: solid 2px rgb(176, 176, 176);
+    box-shadow:0px 1px 1px #cdcdcd;
+}
+
+nav{
+    position: absolute;
+    text-align: left;
+    left: 0;
+    width: 100%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 500ms ease-in-out;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+.main-header-logo{
+    max-width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main-header-checker{
+    display: none;
+}
+
+.main-header-checkers-label{
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin-left: 1em;
+    margin-top: 1em;
+    height: 100%;
+}
+
+
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+nav a:hover{
+    color: rgb(218, 158, 28);
+}
+
+.main-header-checker:checked ~ nav{
+    transform: scale(1,1);
+}
+
+.main-header-checker:checked ~ nav a{
+    transform: scale(1,1);
+    opacity: 1;
+}
+
+@media screen and (min-width:800px) {
+    .main-header-checkers-label{
+        display: none;
+    }
+
+    header{
+        min-width: 800px;
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px ,3fr) 1fr;
+    }
+
+    .main-header-logo{
+        margin-left: 250px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    nav{
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav ul{
+        display: flex;
+    }
+
+    nav li{
+        margin-bottom: 0;
+        margin-left: 50px;
+    }
+
+    nav a{
+        opacity: 1;
+        position: relative;
+    }
+
+    nav a::before{
+        content: '';
+        display: block;
+        height: 3px;
+        background: black;
+        position: absolute;
+        top: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0,1);
+        transform-origin: left;
+        transition: transform ease-in-out 350ms;
+        border-radius: 5px;
+    }
+
+    nav a:hover::before{
+        transform: scale(1,1);
+    }
+
+}
+
+/* skills-part */
+
+.parent-skill-div{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child-skill-div {
+    margin:3em 0 3em 0;
+    border: 2px solid rgb(218, 158, 28);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 100px 0 100px;
+    background-color: white;
+    z-index: 1;
+    margin: 50px;
+}
+
+.child-skill-div div img{
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+}
+
+.grandchild1{
+    display: flex;
+    justify-content: space-around;
+}
+
+.grandchild1 div{
+    margin: 50px;
+    text-align: center;
+}
+
+.grandchild2{
+    display: flex;
+}
+
+
+.grandchild2 div{
+    margin: 50px;
+    text-align: center;
+}
+
+.skill-title{
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 65px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(199,181,14,1) 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 50px;
+}
+
+
+@media screen and (max-width:800px) {
+    .child-skill-div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
